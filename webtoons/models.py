@@ -64,6 +64,9 @@ class Episode(models.Model):
     note = models.TextField()
     created_at = models.DateField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
         return self.title
 
