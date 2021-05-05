@@ -21,6 +21,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('v1.0/webtoons/', include('webtoons.urls')),
+    path('v1.0/interests/', include('interests.urls')),
 ]
 
 urlpatterns += [
