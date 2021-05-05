@@ -42,9 +42,7 @@ class EpisodeSerializer(serializers.ModelSerializer):
 
 class WebtoonDetailSerializer(serializers.ModelSerializer):
     category = serializers.ReadOnlyField(source='category.name')
-    # main_genre = serializers.ReadOnlyField(source='genre.main_genre')
-    # sub_genre = serializers.ReadOnlyField(source='genre.sub_genre')
-    # age_rating = serializers.ReadOnlyField(source='agerating.rating')
+    age_rating = serializers.ReadOnlyField(source='age_rating.rating')
     episode_set = EpisodeSerializer(many=True)
     class Meta:
         model = Webtoon
