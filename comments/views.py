@@ -3,12 +3,15 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView 
+from rest_framework import permissions
 
 from .models import Comment
 from .serializers import CommentSerializer
-from webtoons.models import Webtoon
+from .permissions import IsWriterOrReadOnly
 
 class CommentList(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
     def get(self, request, webtoon_id, episode_id, format=None):
         comments = Comment.objects.filter(episode_info_id=episode_id)
         serializer = CommentSerializer(comments, many=True)
@@ -22,6 +25,8 @@ class CommentList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class CommentDetail(APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsWriterOrReadOnly]
+
     def get_object(self, webtoon_id, episode_id, comment_id):
         return get_object_or_404(Comment, pk=comment_id, episode_info_id=episode_id)
     
