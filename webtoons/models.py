@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Avg
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Category(models.Model):
@@ -48,11 +47,6 @@ class Webtoon(models.Model):
 
     def __str__(self):
         return self.title
-
-    # Webtoon.objects.annotate(star_rating=Avg('episode_set__star_rating'))
-
-    def ratings(self):
-        return self.episode_set.aggregate(avg_rating=Avg('star_rating'))['star_rating']
     
 
 class Episode(models.Model):

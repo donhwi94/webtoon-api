@@ -13,7 +13,7 @@ class CommentList(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request, webtoon_id, episode_id, format=None):
-        comments = Comment.objects.filter(episode_info_id=episode_id)
+        comments = Comment.objects.filter(episode_info_id=episode_id).order_by('-created_at')
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
     
