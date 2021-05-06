@@ -25,6 +25,8 @@ class AgeRatingSerializer(serializers.ModelSerializer):
         fields = ['id', 'rating']
 
 class WebtoonSerializer(serializers.ModelSerializer):
+    category = serializers.ReadOnlyField(source='category.name')
+    age_rating = serializers.ReadOnlyField(source='age_rating.rating')
     class Meta:
         model = Webtoon
         fields = ['id', 'title', 'thumbnail', 'author', 'category', 'description', 'genre', 'age_rating', 'likes']
