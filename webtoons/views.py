@@ -26,8 +26,8 @@ class WebtoonList(APIView):
 # 웹툰 별 회차 목록 조회
 class WebtoonDetail(APIView):
     def get(self, request, webtoon_id, format=None):
-        webtoon = get_object_or_404(Webtoon, pk=webtoon_id)
-        serializer = WebtoonDetailSerializer(webtoon)
+        # 기존 로직은 services.py를 생성해서 관리하면 단위 테스트하기 편할 것 같아요 :)
+        serializer = get_WebtoonDetailSerializer(Webtoon, pk=webtoon_id)
         return Response(serializer.data)
 
 # 웹툰 회차 상세 조회 
