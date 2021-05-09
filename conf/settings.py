@@ -38,9 +38,6 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
-    'rest_framework',
-    'drf_yasg',
 ]
 
 PROJECT_APPS = [
@@ -49,7 +46,13 @@ PROJECT_APPS = [
     'interests.apps.InterestsConfig',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+THIRD_PARTY_APPS = [
+    'django_extensions',
+    'rest_framework',
+    'drf_yasg',
+]
+
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
