@@ -20,11 +20,11 @@
 - 인증되지 않은 요청에느 모든 권한이 없다
 
 # Tech Stack
-Language : python 3.9
-Framework : Django 3.2, Djangorestframework 3.12
-database : sqlite3 
-API : Restful API
-Docs : Swagger
+- Language : python 3.9
+- Framework : Django 3.2, Djangorestframework 3.12
+- database : sqlite3 
+- API : Restful API
+- Docs : Swagger
 
 개발기간 : 2021-05-03 ~ 2021-05-07<br/>
 (추후 업데이트 예정)
