@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('webtoons', '0002_episode_title'),
+        ("webtoons", "0002_episode_title"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='episode',
-            options={'ordering': ['-created_at']},
+            name="episode",
+            options={"ordering": ["-created_at"]},
         ),
     ]

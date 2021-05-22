@@ -9,81 +9,186 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AgeRating',
+            name="AgeRating",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('rating', models.CharField(max_length=10)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("rating", models.CharField(max_length=10)),
             ],
         ),
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=10)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=10)),
             ],
         ),
         migrations.CreateModel(
-            name='Genre',
+            name="Genre",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='SubGenre',
+            name="SubGenre",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=10)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=10)),
             ],
         ),
         migrations.CreateModel(
-            name='Webtoon',
+            name="Webtoon",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100)),
-                ('thumbnail', models.ImageField(default='media/default_thumnail_image.jpeg', upload_to='')),
-                ('author', models.CharField(max_length=20)),
-                ('description', models.TextField()),
-                ('star_rating', models.FloatField()),
-                ('likes', models.PositiveIntegerField()),
-                ('is_completed', models.BooleanField(default=False)),
-                ('age_rating', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.agerating')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.category')),
-                ('genre', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.genre')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=100)),
+                (
+                    "thumbnail",
+                    models.ImageField(
+                        default="media/default_thumnail_image.jpeg", upload_to=""
+                    ),
+                ),
+                ("author", models.CharField(max_length=20)),
+                ("description", models.TextField()),
+                ("star_rating", models.FloatField()),
+                ("likes", models.PositiveIntegerField()),
+                ("is_completed", models.BooleanField(default=False)),
+                (
+                    "age_rating",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="webtoons.agerating",
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="webtoons.category",
+                    ),
+                ),
+                (
+                    "genre",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="webtoons.genre"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='MainGenre',
+            name="MainGenre",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=10)),
-                ('sub_genre', models.ManyToManyField(through='webtoons.Genre', to='webtoons.SubGenre')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=10)),
+                (
+                    "sub_genre",
+                    models.ManyToManyField(
+                        through="webtoons.Genre", to="webtoons.SubGenre"
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='genre',
-            name='main_genre',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.maingenre'),
+            model_name="genre",
+            name="main_genre",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="webtoons.maingenre"
+            ),
         ),
         migrations.AddField(
-            model_name='genre',
-            name='sub_genre',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.subgenre'),
+            model_name="genre",
+            name="sub_genre",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to="webtoons.subgenre"
+            ),
         ),
         migrations.CreateModel(
-            name='Episode',
+            name="Episode",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content', models.ImageField(default='media/default_episode_image.jpeg', upload_to='')),
-                ('star_rating', models.FloatField(validators=[django.core.validators.MinValueValidator(0.0), django.core.validators.MaxValueValidator(10.0)])),
-                ('likes', models.PositiveIntegerField()),
-                ('note', models.TextField()),
-                ('created_at', models.DateField(auto_now_add=True)),
-                ('webtoon_info', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='webtoons.webtoon')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "content",
+                    models.ImageField(
+                        default="media/default_episode_image.jpeg", upload_to=""
+                    ),
+                ),
+                (
+                    "star_rating",
+                    models.FloatField(
+                        validators=[
+                            django.core.validators.MinValueValidator(0.0),
+                            django.core.validators.MaxValueValidator(10.0),
+                        ]
+                    ),
+                ),
+                ("likes", models.PositiveIntegerField()),
+                ("note", models.TextField()),
+                ("created_at", models.DateField(auto_now_add=True)),
+                (
+                    "webtoon_info",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="webtoons.webtoon",
+                    ),
+                ),
             ],
         ),
     ]

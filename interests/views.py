@@ -9,6 +9,7 @@ from .models import Interest
 from .serializers import InterestSerializer, InterestDetailSerializer
 from .permissions import IsOwnerOrReadOnly, IsOwner
 
+
 class InterestList(APIView):
     permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
 
@@ -23,6 +24,7 @@ class InterestList(APIView):
             serializer.save(owner=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class InterestDetail(APIView):
     permission_classes = [permissions.IsAuthenticated, IsOwner]

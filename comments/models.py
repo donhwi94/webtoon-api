@@ -1,6 +1,7 @@
 from django.db import models
 from webtoons.models import Episode
 
+
 class Comment(models.Model):
     episode_info = models.ForeignKey(Episode, on_delete=models.CASCADE)
     writer = models.ForeignKey("auth.User", on_delete=models.CASCADE)
