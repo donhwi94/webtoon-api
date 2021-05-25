@@ -25,9 +25,9 @@
 - database : sqlite3 
 - API : Restful API
 - Docs : Swagger
-- Hosting : AWS EC2
 - web server : Nginx 1.18.0
 - web application server : gunicorn 20.1.0
+- Hosting : AWS EC2
 
 # 개발 환경 및 개발 기간
 - Visual Studio Code 
