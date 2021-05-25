@@ -21,10 +21,13 @@
 
 # Tech Stack
 - Language : python 3.9.4
-- Framework : Django 3.2, Djangorestframework 3.12.4
+- web framework : Django 3.2, Djangorestframework 3.12.4
 - database : sqlite3 
 - API : Restful API
 - Docs : Swagger
+- Hosting : AWS EC2
+- web server : Nginx 1.18.0
+- web application server : gunicorn 20.1.0
 
 # 개발 환경 및 개발 기간
 - Visual Studio Code 
