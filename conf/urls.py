@@ -4,6 +4,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from webtoons import views
+
 schema_view = get_schema_view(
     openapi.Info(
         title="webtoon API",
@@ -18,6 +20,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path("", views.api_root),
     path("api-auth/", include("rest_framework.urls")),
     path("admin/", admin.site.urls),
     path("v1.0/webtoons/", include("webtoons.urls")),

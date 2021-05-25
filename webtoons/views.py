@@ -4,6 +4,8 @@ from django.db.models import Q
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from rest_framework.reverse import reverse
 
 from webtoons.models import Category, Webtoon, Episode
 from webtoons.serializers import (
@@ -12,6 +14,17 @@ from webtoons.serializers import (
     WebtoonDetailSerializer,
     EpisodeDetailSerializer,
 )
+
+# API 단일 진입점
+@api_view(["GET"])
+def api_root(request, format=None):
+    return Response(
+        {
+            "webtoons": reverse("webtoon-list", request=request, format=format),
+            "interests": reverse("interest-list", request=request, format=format),
+        }
+    )
+
 
 # 요일별 웹툰 전체 목록 조회
 class WebtoonList(APIView):
