@@ -22,7 +22,7 @@
 # Tech Stack
 - Language : python 3.9.4
 - web framework : Django 3.2, Djangorestframework 3.12.4
-- database : sqlite3 
+- database : PostgreSQL 
 - API : Restful API
 - Docs : Swagger
 - web server : Nginx 1.18.0
