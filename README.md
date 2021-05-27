@@ -30,7 +30,8 @@
 - Hosting : AWS EC2
 
 # 개발 환경 및 개발 기간
-- Visual Studio Code 
+- OS : MacOS
+- IDE : Visual Studio Code 1.55.1
 - 개발기간 : 2021-05-03 ~ 2021-05-07
 
 (추후 업데이트 예정)
