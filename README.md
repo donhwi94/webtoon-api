@@ -34,4 +34,10 @@
 - IDE : Visual Studio Code 1.55.1
 - 개발기간 : 2021-05-03 ~ 2021-05-07
 
+# DB ERD 
+![webtoon_db_visualized_v1](https://user-images.githubusercontent.com/80886445/119801643-e0688a80-bf18-11eb-90a9-a5c89bfc2316.png)
+
+# API List
+
+
 (추후 업데이트 예정)
