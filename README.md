@@ -17,7 +17,7 @@
 - 관심 웹툰은 관심 웹툰을 등록한 사람과 연결되어 있다
 - 인증된 사용자만이 관심 웹툰을 등록할 수 있다
 - 관심 웹툰을 등록한 사용자만이 관심 목록을 삭제할 수 있다
-- 인증되지 않은 요청에느 모든 권한이 없다
+- 인증되지 않은 요청에는 모든 권한이 없다
 
 # Tech Stack
 - Language : python 3.9.4
@@ -40,5 +40,3 @@
 # DB ERD 
 ![webtoon_db_visualized_v1](https://user-images.githubusercontent.com/80886445/119801643-e0688a80-bf18-11eb-90a9-a5c89bfc2316.png)
 
-
-(추후 업데이트 예정)
