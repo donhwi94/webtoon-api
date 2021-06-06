@@ -27,7 +27,7 @@
 - Docs : Swagger
 - web server : Nginx 1.18.0
 - web application server : gunicorn 20.1.0
-- Hosting : AWS EC2
+- Hosting : AWS EC2, AWS RDS
 
 # 개발 환경 및 개발 기간
 - OS : MacOS
