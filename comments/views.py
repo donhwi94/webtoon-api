@@ -39,6 +39,14 @@ class CommentDetail(APIView):
         serializer = CommentSerializer(comment)
         return Response(serializer.data)
 
+    def put(self, request, webtoon_id, episode_id, comment_id, format=None):
+        comment = self.get_object(webtoon_id, episode_id, comment_id)
+        serializer = CommentSerializer(comment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def delete(self, request, webtoon_id, episode_id, comment_id, format=None):
         comment = self.get_object(webtoon_id, episode_id, comment_id)
         comment.delete()
