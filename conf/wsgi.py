@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "conf.settings.prod")
 
-project_folder = os.path.expanduser('/home/ubuntu/projects/webtoon-api')
-load_dotenv(os.path.join(project_folder, '.env')) 
+project_folder = os.path.expanduser("/home/ubuntu/projects/webtoon-api")
+load_dotenv(os.path.join(project_folder, ".env"))
 
 application = get_wsgi_application()
