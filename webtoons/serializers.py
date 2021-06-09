@@ -33,6 +33,7 @@ class AgeRatingSerializer(serializers.ModelSerializer):
 class WebtoonSerializer(serializers.ModelSerializer):
     category = serializers.ReadOnlyField(source="category.name")
     age_rating = serializers.ReadOnlyField(source="age_rating.rating")
+    thumbnail = serializers.ImageField(use_url=True)
 
     class Meta:
         model = Webtoon
@@ -58,6 +59,8 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class EpisodeSerializer(serializers.ModelSerializer):
+    content = serializers.ImageField(use_url=True)
+
     class Meta:
         model = Episode
         fields = [
@@ -75,6 +78,7 @@ class WebtoonDetailSerializer(serializers.ModelSerializer):
     category = serializers.ReadOnlyField(source="category.name")
     age_rating = serializers.ReadOnlyField(source="age_rating.rating")
     episode_set = EpisodeSerializer(many=True)
+    thumbnail = serializers.ImageField(use_url=True)
 
     class Meta:
         model = Webtoon
@@ -94,6 +98,7 @@ class WebtoonDetailSerializer(serializers.ModelSerializer):
 
 class EpisodeDetailSerializer(serializers.ModelSerializer):
     webtoon_info = serializers.ReadOnlyField(source="webtoon.title")
+    content = serializers.ImageField(use_url=True)
 
     class Meta:
         model = Episode

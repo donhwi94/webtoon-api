@@ -41,7 +41,9 @@ class AgeRating(models.Model):
 
 class Webtoon(models.Model):
     title = models.CharField(max_length=100)
-    thumbnail = models.ImageField(default="media/default_thumnail_image.jpeg")
+    thumbnail = models.ImageField(
+        default="media/default_thumnail_image.jpeg", upload_to="webtoons/"
+    )
     author = models.CharField(max_length=20)
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
     description = models.TextField()
@@ -58,7 +60,9 @@ class Webtoon(models.Model):
 class Episode(models.Model):
     webtoon_info = models.ForeignKey("Webtoon", on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    content = models.ImageField(default="media/default_episode_image.jpeg")
+    content = models.ImageField(
+        default="media/default_episode_image.jpeg", upload_to="episodes/"
+    )
     star_rating = models.FloatField(
         validators=[MinValueValidator(0.00), MaxValueValidator(10.00)]
     )
