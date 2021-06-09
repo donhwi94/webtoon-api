@@ -35,7 +35,7 @@
 - 개발기간 : 2021-05-03 ~ 2021-05-07
 
 # API List 
-![스크린샷 2021-05-27 오후 6 27 08](https://user-images.githubusercontent.com/80886445/119802235-58cf4b80-bf19-11eb-82b4-94c6144dfb4b.png)
+![스크린샷 2021-06-07 오후 8 52 39](https://user-images.githubusercontent.com/80886445/121012126-5cdd5200-c7d2-11eb-9384-5ef5edb14fd4.png)
 
 # DB ERD 
 ![webtoon_db_visualized_v1](https://user-images.githubusercontent.com/80886445/119801643-e0688a80-bf18-11eb-90a9-a5c89bfc2316.png)
