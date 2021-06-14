@@ -40,3 +40,5 @@
 # DB ERD 
 ![webtoon_db_visualized_v1](https://user-images.githubusercontent.com/80886445/119801643-e0688a80-bf18-11eb-90a9-a5c89bfc2316.png)
 
+# 실행 
+python manage.py runserver --settings=conf.settings.local
